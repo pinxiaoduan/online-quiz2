@@ -1,0 +1,22 @@
+# online-quiz2
+#Question (a)
+#download structure.pdb to aws account
+curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-11-regex--structure.pdb>structure.pdb
+sed 's/Beisel/Weisel/' structure.pdb
+#(b)
+sed ‘1,3d’ structure.pdb
+#(c)
+sed -n '1,5p' structure.pdb
+#(d)
+sed '/MET/d' structure.pdb
+#(e)
+sed -ne '/HELIX/{/ILE/p}' structure.pdb
+#(f)
+sed -ne '/^H/{s/$/***/p}' structure.pdb
+#(g)
+sed '/SEQRES/c\SEQ' structure.pdb
+#(h)
+#download the files
+curl https://ilearn.mq.edu.au/pluginfile.php/5698318/mod_resource/content/1/jabberwocky.txt>jabberwocky.txt
+# deline all blink lines.
+sed -i '/^[[:space:]]*$/d' jabberwocky.txt
